@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="todolist1"/>
+        <attribute name="authors" value="Admin"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-02-18 11:26:13 AM"/>
+        <attribute name="created" value="QWRtaW47REVTS1RPUC1DQzVWSzdHOzIwMjUtMDItMTM7MDc6NDc6MDUgQU07MjgxMw=="/>
+        <attribute name="edited" value="QWRtaW47REVTS1RPUC1DQzVWSzdHOzIwMjUtMDItMTg7MTE6MjY6MTMgQU07MTA7Mjk2NQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="tugas" type="String" array="False" size=""/>
+            <declare name="menu" type="Integer" array="False" size=""/>
+            <output expression="&quot;To do List&quot;" newline="True"/>
+            <output expression="&quot;1. Tambah Tugas&quot;" newline="True"/>
+            <output expression="&quot;2. Menampilkan isi tugas&quot;" newline="True"/>
+            <output expression="&quot;3. Mengubah tugas&quot;" newline="True"/>
+            <output expression="&quot;4. Menghapus isi tugas&quot;" newline="True"/>
+            <input variable="menu"/>
+            <if expression="menu=1">
+                <then>
+                    <output expression="&quot;Tuliskan  nama Tugas&quot;" newline="True"/>
+                    <input variable="tugas"/>
+                    <output expression="&quot;Berhasil Menyimpan&quot;" newline="True"/>
+                    <open expression="&quot;tugas.txt&quot;" mode="write"/>
+                    <write expression="tugas"/>
+                    <close mode="write"/>
+                </then>
+                <else>
+                    <if expression="menu=2">
+                        <then>
+                            <open expression="&quot;tugas.txt&quot;" mode="read"/>
+                            <read variable="tugas"/>
+                            <output expression="tugas" newline="True"/>
+                            <close mode="read"/>
+                        </then>
+                        <else>
+                            <if expression="menu=3">
+                                <then>
+                                    <output expression="&quot;masukkan nama tugas baru&quot;" newline="True"/>
+                                    <input variable="tugas"/>
+                                    <open expression="&quot;tugas.txt&quot;" mode="write"/>
+                                    <write expression="tugas"/>
+                                    <output expression="&quot;nama tugas anda sekarang: &quot;" newline="True"/>
+                                    <output expression="tugas" newline="True"/>
+                                    <close mode="write"/>
+                                </then>
+                                <else>
+                                    <if expression="menu=4">
+                                        <then>
+                                            <declare name="menus" type="Integer" array="False" size=""/>
+                                            <output expression="&quot;Apakah anda yakin ingin menghapus tugas ini?&quot;" newline="True"/>
+                                            <output expression="&quot;1. Ya&quot;" newline="True"/>
+                                            <output expression="&quot;2. Tidak&quot;" newline="True"/>
+                                            <input variable="menus"/>
+                                            <if expression="menus=1">
+                                                <then>
+                                                    <output expression="&quot;enter untuk menghapus&quot;" newline="True"/>
+                                                    <input variable="tugas"/>
+                                                    <open expression="&quot;tugas.txt&quot;" mode="write"/>
+                                                    <write expression="tugas"/>
+                                                    <close mode="write"/>
+                                                </then>
+                                                <else/>
+                                            </if>
+                                        </then>
+                                        <else/>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+    <function name="daftartugas" type="None" variable="">
+        <parameters/>
+        <body>
+            <open expression="&quot;data.txt&quot;" mode="write"/>
+            <declare name="a, b, c, d" type="String" array="False" size=""/>
+            <output expression="&quot;Masukkan nama Tugas&quot;" newline="True"/>
+            <input variable="a"/>
+            <output expression="&quot;Masukkan Status&quot;" newline="True"/>
+            <input variable="b"/>
+            <output expression="&quot;Masukkan Prioritas&quot;" newline="True"/>
+            <input variable="c"/>
+            <output expression="&quot;Masukkan Tanggal&quot;" newline="False"/>
+            <input variable="d"/>
+            <output expression="&quot;Nama tugas adalah: &quot;" newline="True"/>
+            <output expression="a" newline="True"/>
+            <output expression="&quot;Status tugas adalah:&quot;" newline="True"/>
+            <output expression="b" newline="True"/>
+            <output expression="&quot;Prioritas tugas adalah:&quot;" newline="True"/>
+            <output expression="c" newline="True"/>
+            <output expression="&quot;Tanggal tugas adalah:&quot;" newline="True"/>
+            <output expression="d" newline="True"/>
+            <close mode="write"/>
+            <output expression="&quot;Data telah Berhasil Disimpan&quot;" newline="True"/>
+        </body>
+    </function>
+    <function name="tampiltugas" type="None" variable="">
+        <parameters/>
+        <body/>
+    </function>
+</flowgorithm>
